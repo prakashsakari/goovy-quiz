@@ -1,0 +1,11 @@
+.heading {
+    padding: 1rem 4rem;
+    background-color: var(--bg-color);
+}
+  
+  .logo {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+}
+  

@@ -1,4 +1,5 @@
 import "./QuizCard.css";
+
 export const QuizCard = ({ category }) => {
   const { title, description, img } = category;
   return (

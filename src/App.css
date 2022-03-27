@@ -2,6 +2,7 @@
 @import url("./components/Navbar/Navbar.css");
 @import url("./components/QuizCard/QuizCard.css");
 @import url("./components/Footer/Footer.css");
+
 :root {
   --primary-color: #21224e;
   --secondary-color: #1c1a30;

@@ -14,6 +14,11 @@ export const Navbar = () => {
       </div>
       <nav className="navigation">
         <ul className="list-non-bullet">
+          <li class="list-item-inline">
+            <Link to="/rules" class="link cursor">
+              Guidelines
+            </Link>
+          </li>
           <li className="list-item-inline">
             <Link to="/login" class="link cursor">
               Login

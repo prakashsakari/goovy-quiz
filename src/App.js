@@ -1,5 +1,5 @@
 import "./App.css";
-import { Home, Login } from "./pages";
+import { Home, Login, Rules } from "./pages";
 import { Route, Routes } from "react-router-dom";
 
 export default function App() {
@@ -8,6 +8,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/rules" element={<Rules />} />
       </Routes>
     </div>
   );

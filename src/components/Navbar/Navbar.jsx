@@ -1,11 +1,12 @@
 import "./Navbar.css";
 import logo from "../../assets/logo.png"
 import { Link } from "react-router-dom";
-export const Navbar = () => {
+
+export const Navbar = ({route}) => {
   return (
     <header className="heading d-flex grow-shrink-basis align-center">
       <div className="heading-title-icon d-flex grow-shrink-basis align-center">
-        <img className="logo mr-1" src={logo} alt="lightbul" />
+        <img className="logo mr-1" src={logo} alt="logo" />
         <h1 className="heading-title">
           <a className="link" href="/">
             Groovy Quiz
@@ -14,13 +15,19 @@ export const Navbar = () => {
       </div>
       <nav className="navigation">
         <ul className="list-non-bullet">
-          <li class="list-item-inline">
-            <Link to="/rules" class="link cursor">
-              Guidelines
-            </Link>
+          <li className="list-item-inline">
+          {route === "rules" ? (
+              <Link to="/game" className="link cursor">
+                Start Game 🚀
+              </Link>
+            ) : (
+              <Link to="/rules" className="link cursor">
+                Guidelines
+              </Link>
+            )}
           </li>
           <li className="list-item-inline">
-            <Link to="/login" class="link cursor">
+            <Link to="/login" className="link cursor">
               Login
             </Link>
           </li>

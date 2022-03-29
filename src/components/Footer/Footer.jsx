@@ -1,4 +1,5 @@
 import "./Footer.css";
+
 export const Footer = () => {
   return (
     <footer className="footer d-flex direction-column align-center">

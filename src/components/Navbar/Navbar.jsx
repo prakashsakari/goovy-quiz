@@ -1,8 +1,14 @@
 import "./Navbar.css";
 import logo from "../../assets/logo.png"
 import { Link } from "react-router-dom";
+import { useQuiz } from "../../context/quiz-context";
 
 export const Navbar = ({route}) => {
+  const {
+    quizState: { currentCategory },
+    quizDispatch
+  } = useQuiz();
+
   return (
     <header className="heading d-flex grow-shrink-basis align-center">
       <div className="heading-title-icon d-flex grow-shrink-basis align-center">
@@ -17,7 +23,12 @@ export const Navbar = ({route}) => {
         <ul className="list-non-bullet">
           <li className="list-item-inline">
           {route === "rules" ? (
-              <Link to="/quiz" className="link cursor">
+              <Link to="/quiz" className="link cursor" onClick={() =>
+                quizDispatch({
+                  type: "GET_DATA",
+                  payload: currentCategory
+                })
+              }>
                 Start Game 🚀
               </Link>
             ) : (

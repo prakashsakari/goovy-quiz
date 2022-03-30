@@ -17,7 +17,7 @@ export const Navbar = ({route}) => {
         <ul className="list-non-bullet">
           <li className="list-item-inline">
           {route === "rules" ? (
-              <Link to="/game" className="link cursor">
+              <Link to="/quiz" className="link cursor">
                 Start Game 🚀
               </Link>
             ) : (

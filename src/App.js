@@ -1,5 +1,5 @@
 import "./App.css";
-import { Home, Login, Rules } from "./pages";
+import { Home, Login, Rules, Quiz } from "./pages";
 import { Route, Routes } from "react-router-dom";
 
 export default function App() {
@@ -9,6 +9,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/rules" element={<Rules />} />
+        <Route path="/quiz" element={<Quiz />} />
       </Routes>
     </div>
   );

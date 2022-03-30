@@ -1,5 +1,6 @@
 import { categories } from "../staticData/categories";
 import { Navbar, QuizCard, Footer } from "../components";
+
 export const Home = () => {
   return (
     <>

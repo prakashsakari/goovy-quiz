@@ -49,12 +49,14 @@
   }
   
   .success {
-    background-color: green;
-    color: white;
+    background-color: var(--green-badge);
+    color: var(--text-color-primary);
+    font-weight: 700;
   }
   
   .error {
-    background-color: red;
-    color: white;
+    background-color: var(--red-badge);
+    color: var(--text-color-primary);
+    font-weight: 700;
   }
   

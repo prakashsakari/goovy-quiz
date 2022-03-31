@@ -1,8 +1,10 @@
 import "./QuizCard.css";
 import {Link} from "react-router-dom";
+import { useQuiz } from "../../context/quiz-context";
 
 export const QuizCard = ({ category }) => {
-  const { title, description, img, mostPlayed } = category;
+  const {quizDispatch} = useQuiz();
+  const { title, description, img, mostPlayed, quizCategory } = category;
   return (
     <div className="container relative">
       <div className="d-flex align-center justify-center">
@@ -21,7 +23,12 @@ export const QuizCard = ({ category }) => {
         <h3 className="title">{title}</h3>
         <span>{description}</span>
       </div>
-      <button className="button btn-primary cursor">
+      <button className="button btn-primary cursor" onClick={() =>
+          quizDispatch({
+            type: "SELECTED_CATEGORY",
+            payload: quizCategory
+          })
+        }>
         <Link class="link-btn" to="/rules">Play Now</Link>
       </button>
     </div>

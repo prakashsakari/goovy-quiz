@@ -5,9 +5,9 @@ export const Home = () => {
   return (
     <>
       <Navbar />
-      <main class="flex-container">
+      <main className="flex-container">
         {categories.map((category) => {
-          return <QuizCard category={category} />;
+          return <QuizCard category={category} key={category.id}/>;
         })}
       </main>
       <Footer />

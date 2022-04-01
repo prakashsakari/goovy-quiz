@@ -3,3 +3,4 @@ export { Footer } from "./Footer/Footer";
 export { QuizCard } from "./QuizCard/QuizCard";
 export { Rule } from "./Rule/Rule";
 export { QuestionAnswer } from "./QuestionAnswer/QuestionAnswer";
+export { Results } from "./Results/Results";

@@ -1,0 +1,24 @@
+.result {
+    margin: 1rem 0 3rem 0;
+}
+
+.result-box {
+    width: 60vw;
+    color: var(--text-color-primary);
+    background-color: var(--primary-color);
+    border-radius: 4px;
+    padding: 1rem 2rem;
+  }
+
+.result:last-child {
+    margin: 1rem;
+}
+
+.final-score {
+    margin-top: 1rem;
+}
+
+.option {
+    font-size: 1.2rem;
+}
+

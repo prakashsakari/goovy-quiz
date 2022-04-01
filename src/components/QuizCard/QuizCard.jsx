@@ -15,7 +15,7 @@ export const QuizCard = ({ category }) => {
             alt="quiz"
           />
           {mostPlayed && (
-            <small class="c-badge bg-color absolute left-0">Most Played</small>
+            <small className="c-badge bg-color absolute left-0">Most Played</small>
           )}
         </div>
       </div>
@@ -29,7 +29,7 @@ export const QuizCard = ({ category }) => {
             payload: quizCategory
           })
         }>
-        <Link class="link-btn" to="/rules">Play Now</Link>
+        <Link className="link-btn" to="/rules">Play Now</Link>
       </button>
     </div>
   );

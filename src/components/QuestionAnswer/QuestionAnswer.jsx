@@ -10,7 +10,8 @@ export const QuestionAnswer = () => {
       selectedAnswer,
       questions,
       currentQuestion,
-      ansOptions
+      ansOptions,
+      isSelected
     },
     quizDispatch
   } = useQuiz();
@@ -75,6 +76,7 @@ export const QuestionAnswer = () => {
         <div className="nxt-btn-container">
           {currentQuestion < questions.length - 1 ? (
             <button
+              disabled={isSelected}
               className="nxt-qstn play-now-btn button btn-primary cursor"
               onClick={() =>
                 quizDispatch({
@@ -91,6 +93,7 @@ export const QuestionAnswer = () => {
           ) : (
             <Link to="/result">
               <button
+                disabled={isSelected}
                 className="nxt-qstn button play-now-btn btn-primary cursor"
                 onClick={() =>
                   quizDispatch({

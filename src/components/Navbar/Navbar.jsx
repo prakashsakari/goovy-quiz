@@ -21,11 +21,11 @@ export const Navbar = ({route}) => {
       </div>
       <nav className="navigation">
         <ul className="list-non-bullet">
-          <li class="list-item-inline">
+          <li className="list-item-inline">
             {route === "rules" ? (
               <Link
                 to="/quiz"
-                class="link nav-options cursor"
+                className="link nav-options cursor"
                 onClick={() =>
                   quizDispatch({
                     type: "GET_DATA",
@@ -36,7 +36,7 @@ export const Navbar = ({route}) => {
                 Start Game 🚀🚀
               </Link>
             ) : route === "home" ? (
-              <Link to="/rules" class="link nav-options cursor">
+              <Link to="/rules" className="link nav-options cursor">
                 Guidelines
               </Link>
             ) : (
@@ -45,7 +45,7 @@ export const Navbar = ({route}) => {
           </li>
           {route === "rules" || route === "home" || route === "signup" ? (
             <li className="list-item-inline">
-              <Link to="/login" class="link nav-options cursor">
+              <Link to="/login" className="link nav-options cursor">
                 Login
               </Link>
             </li>
@@ -53,7 +53,7 @@ export const Navbar = ({route}) => {
             <li className="list-item-inline">
               <Link
                 to="/"
-                class="link nav-options cursor"
+                className="link nav-options cursor"
                 onClick={() =>
                   quizDispatch({
                     type: "LOGOUT"
@@ -65,7 +65,7 @@ export const Navbar = ({route}) => {
             </li>
           ) : route === "login" ? (
             <li className="list-item-inline">
-              <Link to="/signup" class="link nav-options cursor">
+              <Link to="/signup" className="link nav-options cursor">
                 Signup
               </Link>
             </li>

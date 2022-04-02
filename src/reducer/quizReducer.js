@@ -70,19 +70,6 @@ export const quizReducer = (quizState, { type, payload }) => {
         isSelected: true
       };
 
-    
-    case "END_GAME":
-      return {
-        ...quizState,
-        currentCategory: "",
-        currentQuestion: 0,
-        score: 0,
-        selectedAnswer: "",
-        questions: [],
-        ansOptions: [],
-        finalResult: [],
-        isSelected: true
-      };
     default:
       return quizState;
   }

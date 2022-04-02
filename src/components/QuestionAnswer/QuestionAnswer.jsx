@@ -10,7 +10,8 @@ export const QuestionAnswer = () => {
       selectedAnswer,
       questions,
       currentQuestion,
-      ansOptions
+      ansOptions,
+      isSelected
     },
     quizDispatch
   } = useQuiz();
@@ -44,11 +45,11 @@ export const QuestionAnswer = () => {
             : ""}
         </h2>
         <div className="qsn_scr">
-          <span>Questions: {currentQuestion + 1}/5</span>
+          <span>Questions: {currentQuestion + 1}/{questions.length}</span>
           <span className="score">Score: {score}</span>
         </div>
         <div className="question">
-          <span>{questions?.[currentQuestion]?.question}</span>
+          <span>Q{currentQuestion + 1} - {questions?.[currentQuestion]?.question}</span>
         </div>
         <div className="options-box">
           {ansOptions &&
@@ -73,12 +74,17 @@ export const QuestionAnswer = () => {
             })}
         </div>
         <div className="nxt-btn-container">
-          {currentQuestion < 4 ? (
+          {currentQuestion < questions.length - 1 ? (
             <button
-              className="nxt-qstn button btn-primary cursor"
+              disabled={isSelected}
+              className="nxt-qstn play-now-btn button btn-primary cursor"
               onClick={() =>
                 quizDispatch({
-                  type: "NEXT_QUESTION"
+                  type: "NEXT_QUESTION",
+                  payload: {
+                    qns: questions[currentQuestion]?.question,
+                    ans: selectedAnswer
+                  }
                 })
               }
             >
@@ -86,8 +92,20 @@ export const QuestionAnswer = () => {
             </button>
           ) : (
             <Link to="/result">
-              <button className="nxt-qstn button btn-primary cursor">
-                Next Question
+              <button
+                disabled={isSelected}
+                className="nxt-qstn button play-now-btn btn-primary cursor"
+                onClick={() =>
+                  quizDispatch({
+                    type: "RESULT_PAGE",
+                    payload: {
+                      qns: questions[currentQuestion]?.question,
+                      ans: selectedAnswer
+                    }
+                  })
+                }
+              >
+                Submit
               </button>
             </Link>
           )}

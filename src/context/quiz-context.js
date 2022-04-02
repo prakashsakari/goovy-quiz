@@ -10,7 +10,9 @@ const QuizProvider = ({ children }) => {
     score: 0,
     selectedAnswer: "",
     questions: [],
-    ansOptions: []
+    ansOptions: [],
+    finalResult: [],
+    isSelected: true
   });
 
   return (

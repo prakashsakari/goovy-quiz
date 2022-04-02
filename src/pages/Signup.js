@@ -1,16 +1,16 @@
-import { Navbar, AuthLogin } from "../components";
+import { Navbar, AuthSignUp } from "../components";
 import { useEffect, useState } from "react";
 
-export const Login = () => {
+export const SignUp = () => {
   const [route, setRoute] = useState();
 
   useEffect(() => {
-    setRoute("login");
+    setRoute("signup");
   }, [route]);
   return (
     <>
       <Navbar route={route} />
-      <AuthLogin />
+      <AuthSignUp />
     </>
   );
 };

@@ -48,7 +48,7 @@ export const QuestionAnswer = () => {
           <span className="score">Score: {score}</span>
         </div>
         <div className="question">
-          <span>Q - {questions?.[currentQuestion]?.question}</span>
+          <span>Q{currentQuestion + 1} - {questions?.[currentQuestion]?.question}</span>
         </div>
         <div className="options-box">
           {ansOptions &&
@@ -75,7 +75,7 @@ export const QuestionAnswer = () => {
         <div className="nxt-btn-container">
           {currentQuestion < questions.length - 1 ? (
             <button
-              className="nxt-qstn button btn-primary cursor"
+              className="nxt-qstn play-now-btn button btn-primary cursor"
               onClick={() =>
                 quizDispatch({
                   type: "NEXT_QUESTION",
@@ -91,7 +91,7 @@ export const QuestionAnswer = () => {
           ) : (
             <Link to="/result">
               <button
-                className="nxt-qstn button btn-primary cursor"
+                className="nxt-qstn button play-now-btn btn-primary cursor"
                 onClick={() =>
                   quizDispatch({
                     type: "RESULT_PAGE",

@@ -1,5 +1,5 @@
 .qns-main {
-    margin-top: 3rem;
+    margin: 1rem;
   }
   
 .question-dialog {
@@ -37,6 +37,7 @@
   background-color: var(--bg-color);
   color: var(--text-color-primary);
   border-radius: 2rem;
+  width: 100%;
 }
 
 .nxt-btn-container {

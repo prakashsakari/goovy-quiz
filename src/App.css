@@ -2,6 +2,10 @@
 @import url("./components/Navbar/Navbar.css");
 @import url("./components/QuizCard/QuizCard.css");
 @import url("./components/Footer/Footer.css");
+@import url("./components/QuestionAnswer/QuestionAnswer.css");
+@import url("./components/Auth/Auth.css");
+@import url("./pages/Result.css");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
 
 :root {
   --primary-color: #21224e;

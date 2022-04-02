@@ -15,7 +15,7 @@ export const QuizCard = ({ category }) => {
             alt="quiz"
           />
           {mostPlayed && (
-            <small class="c-badge bg-color absolute left-0">Most Played</small>
+            <small className="c-badge bg-color absolute left-0">Most Played</small>
           )}
         </div>
       </div>
@@ -23,13 +23,13 @@ export const QuizCard = ({ category }) => {
         <h3 className="title">{title}</h3>
         <span>{description}</span>
       </div>
-      <button className="button btn-primary cursor" onClick={() =>
+      <button className="button play-now-btn btn-primary cursor" onClick={() =>
           quizDispatch({
             type: "SELECTED_CATEGORY",
             payload: quizCategory
           })
         }>
-        <Link class="link-btn" to="/rules">Play Now</Link>
+        <Link className="play-now-link-btn" to="/rules">Play Now</Link>
       </button>
     </div>
   );

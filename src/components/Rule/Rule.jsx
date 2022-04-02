@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "./Rule.css";
 import rules from "../../assets/rules.svg";
 import { useQuiz } from "../../context/quiz-context";
+import { useAuth } from "../../context/auth-context";
 
 export const Rule = () => {
 
@@ -9,6 +10,10 @@ export const Rule = () => {
     quizState: { currentCategory },
     quizDispatch
   } = useQuiz();
+
+  const {
+    state: { userName }
+  } = useAuth();
 
   return (
     <main className="grid-container-two-col ">
@@ -39,7 +44,7 @@ export const Rule = () => {
                 payload: currentCategory
               })
             }>
-            <Link className="link-btn" to="/quiz">
+            <Link className="link-btn" to={userName ? "/quiz" : "/login"}>
               Let the game begin
               <span role="img" aria-label="fire">
                 🔥🔥

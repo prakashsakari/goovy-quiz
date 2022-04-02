@@ -55,7 +55,7 @@ export const quizReducer = (quizState, { type, payload }) => {
         finalResult: [...quizState.finalResult, { qns: payload.qns, ans: payload.ans }],
       };
     
-    case "LOGOUT":
+    case "END_GAME":
       return {
         ...quizState,
         currentCategory: "",
@@ -64,7 +64,7 @@ export const quizReducer = (quizState, { type, payload }) => {
         selectedAnswer: "",
         questions: [],
         ansOptions: [],
-        showFinalResult: [],
+        finalResult: [],
         isSelected: true
       };
     default:

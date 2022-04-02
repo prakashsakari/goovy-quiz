@@ -1,14 +1,23 @@
 import { useQuiz } from "../context/quiz-context";
 import "./Result.css";
-import { Results } from "../components";
+import { Navbar, Results } from "../components";
+import {useState, useEffect} from "react";
 
 export const Result = () => {
+  const [route, setRoute] = useState();
+
+  useEffect(() => {
+    setRoute("result");
+  }, [route]);
+
   const {
     quizState: { score, questions, finalResult }
   } = useQuiz();
 
 
   return (
+    <>
+    <Navbar route={route} />
     <main className="d-flex justify-center qns-main ">
       <section className="result-box container-flex ">
         <h2 className="d-flex justify-center">Result</h2>
@@ -23,5 +32,7 @@ export const Result = () => {
         </div>
       </section>
     </main>
+    </>
+    
   );
 };

@@ -69,6 +69,7 @@ export const quizReducer = (quizState, { type, payload }) => {
         finalResult: [],
         isSelected: true
       };
+
     default:
       return quizState;
   }

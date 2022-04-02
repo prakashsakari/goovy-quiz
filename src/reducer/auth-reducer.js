@@ -22,6 +22,17 @@ export const passwordReducer = (state, { type, payload }) => {
           email: payload,
           isEmailValid: payload.includes("@") ? true : false
         };
+      
+      case "GET_USER_NAME":
+        return {
+          ...state,
+          userName: payload.includes(".")
+            ? payload
+                .split(".")
+                .join("")
+                .slice(0, payload.indexOf("@") - 1)
+            : payload.slice(0, payload.indexOf("@"))
+        };
   
       default:
         return state;

@@ -1,15 +1,9 @@
 import { Link } from "react-router-dom";
 import "./Rule.css";
 import rules from "../../assets/rules.svg";
-import { useQuiz } from "../../context/quiz-context";
 import { useAuth } from "../../context/auth-context";
 
 export const Rule = () => {
-
-  const {
-    quizState: { currentCategory },
-    quizDispatch
-  } = useQuiz();
 
   const {
     state: { userName }
@@ -38,14 +32,7 @@ export const Rule = () => {
             </li>
             <li className="rule-point">You can take the quiz multiple times.</li>
           </ul>
-          <button className="play-btn" 
-          // onClick={() =>
-          //     quizDispatch({
-          //       type: "GET_DATA",
-          //       payload: currentCategory
-          //     })
-          //   }
-            >
+          <button className="play-btn">
             <Link className="link-btn" to={userName ? "/quiz" : "/login"}>
               Let the game begin
               <span role="img" aria-label="fire">

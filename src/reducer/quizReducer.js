@@ -6,12 +6,13 @@ export const quizReducer = (quizState, { type, payload }) => {
     case "SELECTED_CATEGORY":
       return {
         ...quizState,
-        currentCategory: payload
+        currentCategory: payload.value,
+        quizTitle: payload.title
       };
 
     case "GET_QUESTIONS":
       return {
-        ...state,
+        ...quizState,
         questions: payload,
         ansOptions: shuffleOptions(payload, 0)
       };
@@ -51,7 +52,7 @@ export const quizReducer = (quizState, { type, payload }) => {
     case "NEXT_QUESTION":
       return {
         ...quizState,
-        currentQuestion: quizState.currentQuestion < 4 && quizState.currentQuestion + 1,
+        currentQuestion: quizState.currentQuestion < quizState.questions.length - 1 && quizState.currentQuestion + 1,
         finalResult: [...quizState.finalResult, { qns: payload.qns, ans: payload.ans }],
         selectedAnswer: "",
         ansOptions: shuffleOptions(quizState.questions, quizState.currentQuestion + 1),

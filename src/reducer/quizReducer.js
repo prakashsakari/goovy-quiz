@@ -17,27 +17,6 @@ export const quizReducer = (quizState, { type, payload }) => {
         ansOptions: shuffleOptions(payload, 0)
       };
 
-    // case "GET_DATA":
-    //   return {
-    //     ...quizState,
-    //     questions:
-    //       payload === "maths"
-    //         ? mathQuestions
-    //         : payload === "history"
-    //         ? historyQuestion
-    //         : payload === "geog"
-    //         ? geogQuestions
-    //         : [],
-    //     ansOptions: shuffleOptions(
-    //       payload === "maths"
-    //         ? mathQuestions
-    //         : payload === "history"
-    //         ? historyQuestion
-    //         : payload === "geog"
-    //         ? geogQuestions
-    //         : [], 0)
-    //   };
-
     case "ANSWER_CHECK":
       return {
         ...quizState,

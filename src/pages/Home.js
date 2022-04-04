@@ -12,7 +12,7 @@ export const Home = () => {
   return (
     <>
       <Navbar route={route}/>
-      <main className="flex-container">
+      <main className="flex-container wrap gap-1rem">
         {categories.map((category) => {
           return <QuizCard category={category} key={category.id}/>;
         })}

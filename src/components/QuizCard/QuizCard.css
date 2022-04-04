@@ -26,6 +26,14 @@
     align-items: flex-start;
     justify-content: center;
   }
+
+  .wrap {
+    flex-wrap: wrap;
+  }
+
+  .gap-1rem {
+    gap: 1rem;
+  }
   
   .img-box {
     width: 17rem;

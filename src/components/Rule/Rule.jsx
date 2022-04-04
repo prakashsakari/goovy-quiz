@@ -38,12 +38,14 @@ export const Rule = () => {
             </li>
             <li className="rule-point">You can take the quiz multiple times.</li>
           </ul>
-          <button className="play-btn" onClick={() =>
-              quizDispatch({
-                type: "GET_DATA",
-                payload: currentCategory
-              })
-            }>
+          <button className="play-btn" 
+          // onClick={() =>
+          //     quizDispatch({
+          //       type: "GET_DATA",
+          //       payload: currentCategory
+          //     })
+          //   }
+            >
             <Link className="link-btn" to={userName ? "/quiz" : "/login"}>
               Let the game begin
               <span role="img" aria-label="fire">

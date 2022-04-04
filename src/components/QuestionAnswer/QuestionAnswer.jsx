@@ -1,6 +1,23 @@
 import "./QuestionAnswer.css";
 import { Link } from "react-router-dom";
 import { useQuiz } from "../../context/quiz-context";
+import axios from "axios";
+import { useEffect } from "react";
+
+const useAsync = (currentCategory) => {
+  const { quizDispatch } = useQuiz();
+
+  useEffect(() => {
+    (async () => {
+      const {
+        data: { results }
+      } = await axios.get(
+        `https://opentdb.com/api.php?amount=10&category=${currentCategory}&difficulty=medium&type=multiple`
+      );
+      quizDispatch({ type: "GET_QUESTIONS", payload: results });
+    })();
+  }, []);
+};
 
 export const QuestionAnswer = () => {
   const {
@@ -11,7 +28,8 @@ export const QuestionAnswer = () => {
       questions,
       currentQuestion,
       ansOptions,
-      isSelected
+      isSelected,
+      quizTitle
     },
     quizDispatch
   } = useQuiz();
@@ -19,30 +37,26 @@ export const QuestionAnswer = () => {
   const getClassName = (option) => {
     if (
       selectedAnswer === option &&
-      option === questions[currentQuestion].correctAnswer
+      option === questions[currentQuestion].correct_answer
     ) {
       return "success";
     } else if (
       selectedAnswer === option &&
-      option !== questions[currentQuestion].correctAnswer
+      option !== questions[currentQuestion].correct_answer
     ) {
       return "error";
-    } else if (option === questions[currentQuestion].correctAnswer) {
+    } else if (option === questions[currentQuestion].correct_answer) {
       return "success";
     }
   };
+
+  useAsync(currentCategory);
 
   return (
     <main className="d-flex justify-center qns-main">
       <section className="question-dialog container-flex">
         <h2 className="d-flex justify-center qsn-title">
-          {currentCategory === "maths"
-            ? "Maths Formula"
-            : currentCategory === "history"
-            ? "History"
-            : currentCategory === "geog"
-            ? "Geography"
-            : ""}
+          {quizTitle}
         </h2>
         <div className="qsn_scr">
           <span>Questions: {currentQuestion + 1}/{questions.length}</span>

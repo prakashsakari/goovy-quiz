@@ -12,7 +12,8 @@ const QuizProvider = ({ children }) => {
     questions: [],
     ansOptions: [],
     finalResult: [],
-    isSelected: true
+    isSelected: true,
+    quizTitle: ""
   });
 
   return (

@@ -8,12 +8,12 @@ export const Results = ({ index, qns, ans }) => {
   return (
     <div className="result">
       <h3 className="question">Q{index + 1} - {qns}</h3>
-      <h4 className={`option d-flex justify-center ${ questions[index]?.correctAnswer === ans ? "success" : "error"}`}>
+      <h4 className={`option d-flex justify-center ${ questions[index]?.correct_answer === ans ? "success" : "error"}`}>
         Your Answer - {ans}
       </h4>
-      {questions[index].correctAnswer !== ans && (
+      {questions[index].correct_answer !== ans && (
         <h4 className="success option d-flex justify-center">
-          Correct Answer - {questions[index]?.correctAnswer}
+          Correct Answer - {questions[index]?.correct_answer}
         </h4>
       )}
     </div>

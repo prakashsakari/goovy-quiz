@@ -9,33 +9,40 @@ export const quizReducer = (quizState, { type, payload }) => {
         currentCategory: payload
       };
 
-    case "GET_DATA":
+    case "GET_QUESTIONS":
       return {
-        ...quizState,
-        questions:
-          payload === "maths"
-            ? mathQuestions
-            : payload === "history"
-            ? historyQuestion
-            : payload === "geog"
-            ? geogQuestions
-            : [],
-        ansOptions: shuffleOptions(
-          payload === "maths"
-            ? mathQuestions
-            : payload === "history"
-            ? historyQuestion
-            : payload === "geog"
-            ? geogQuestions
-            : [], 0)
+        ...state,
+        questions: payload,
+        ansOptions: shuffleOptions(payload, 0)
       };
+
+    // case "GET_DATA":
+    //   return {
+    //     ...quizState,
+    //     questions:
+    //       payload === "maths"
+    //         ? mathQuestions
+    //         : payload === "history"
+    //         ? historyQuestion
+    //         : payload === "geog"
+    //         ? geogQuestions
+    //         : [],
+    //     ansOptions: shuffleOptions(
+    //       payload === "maths"
+    //         ? mathQuestions
+    //         : payload === "history"
+    //         ? historyQuestion
+    //         : payload === "geog"
+    //         ? geogQuestions
+    //         : [], 0)
+    //   };
 
     case "ANSWER_CHECK":
       return {
         ...quizState,
         selectedAnswer: payload,
         score:
-          payload === quizState.questions?.[quizState.currentQuestion]?.correctAnswer
+          payload === quizState.questions?.[quizState.currentQuestion]?.correct_answer
             ? quizState.score + 10
             : quizState.score,
         isSelected: !quizState.isSelected

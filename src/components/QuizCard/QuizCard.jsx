@@ -4,7 +4,7 @@ import { useQuiz } from "../../context/quiz-context";
 
 export const QuizCard = ({ category }) => {
   const {quizDispatch} = useQuiz();
-  const { title, description, img, mostPlayed, quizCategory } = category;
+  const { title, description, img, mostPlayed, quizCategory, value } = category;
   return (
     <div className="container relative">
       <div className="d-flex align-center justify-center">
@@ -26,7 +26,7 @@ export const QuizCard = ({ category }) => {
       <button className="button play-now-btn btn-primary cursor" onClick={() =>
           quizDispatch({
             type: "SELECTED_CATEGORY",
-            payload: quizCategory
+            payload: value
           })
         }>
         <Link className="play-now-link-btn" to="/rules">Play Now</Link>

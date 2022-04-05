@@ -1,5 +1,4 @@
-import { mathQuestions, geogQuestions, historyQuestion } from "../staticData";
-import { shuffleOptions } from "../utils/shuffleOptions";
+import { shuffleOptions } from "../utils";
 
 export const quizReducer = (quizState, { type, payload }) => {
   switch (type) {

@@ -1,5 +1,5 @@
 .d-grid {
-    margin: 1rem 0;
+    margin: 8rem 0 1rem 0;
     display: grid;
     place-content: center center;
   }
@@ -8,7 +8,7 @@
     width: 33rem;
     background-color: var(--primary-color);
     color: var(--text-color-primary);
-    padding: 2rem 4rem;
+    padding: 1rem 4rem;
     border-radius: 4px;
   }
   

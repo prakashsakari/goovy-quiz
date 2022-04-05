@@ -1,7 +1,7 @@
 import "./Auth.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useAuth } from "../../context/auth-context";
+import { useAuth } from "../../context";
 
 export const AuthSignUp = () => {
   const [passwordtype, setPasswordType] = useState("password");

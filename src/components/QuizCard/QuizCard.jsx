@@ -1,6 +1,6 @@
 import "./QuizCard.css";
 import {Link} from "react-router-dom";
-import { useQuiz } from "../../context/quiz-context";
+import { useQuiz } from "../../context";
 
 export const QuizCard = ({ category }) => {
   const {quizDispatch} = useQuiz();

@@ -1,11 +1,33 @@
 .heading {
-    padding: 1rem 4rem;
-    background-color: var(--bg-color);
+  padding: 1rem 4rem;
+  background-color: var(--bg-color);
+  width: 100vw;
+  overflow: hidden;
+  z-index: 1;
 }
-  
-  .logo {
+
+.logo {
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 50%;
 }
-  
+
+.search-box {
+  width: 18rem;
+  padding-left: 2rem;
+  font-size: 1rem;
+  border: 1px solid var(--accent-color);
+}
+
+.search-icon {
+  top: 8px;
+  left: 4px;
+}
+
+.search-box-container {
+  margin-left: auto;
+}
+
+.navigation {
+  margin-left: auto;
+}

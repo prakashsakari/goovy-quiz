@@ -1,8 +1,7 @@
 import "./Navbar.css";
 import logo from "../../assets/logo.png"
 import { Link } from "react-router-dom";
-import { useQuiz } from "../../context/quiz-context";
-import { useAuth } from "../../context/auth-context";
+import { useQuiz, useAuth, useFilter } from "../../context";
 
 export const Navbar = ({route}) => {
   const {
@@ -14,9 +13,18 @@ export const Navbar = ({route}) => {
     state: { userName }
   } = useAuth();
 
+  const { filterDispatch } = useFilter();
+
+  const handleInput = (e) => {
+    filterDispatch({
+      type: "SEARCH",
+      payload: e.target.value
+    });
+  };
+
   return (
-    <header className="heading d-flex grow-shrink-basis align-center">
-      <div className="heading-title-icon d-flex grow-shrink-basis align-center">
+    <header className="heading d-flex grow1-shrink1-basisauto align-center fixed top-0 left-0">
+      <div className="heading-title-icon d-flex align-center">
         <img className="logo mr-1" src={logo} alt="logo" />
         <h1 className="heading-title">
         {route === "quiz" || route === "result" ? (
@@ -28,6 +36,21 @@ export const Navbar = ({route}) => {
           )}
         </h1>
       </div>
+      {route === "home" && (
+        <div className="search-box-container relative">
+          <input
+            className="search-box padding-all-8 border-radius-4"
+            type="text"
+            placeholder="Search"
+            onChange={(e) => handleInput(e)}
+          />
+          <img
+            src="https://therightfit.netlify.app/assets/outline_search_black_24dp.png"
+            alt="Search"
+            className="search-icon absolute left-0 top-0"
+          />
+        </div>
+      )}
       <nav className="navigation">
         <ul className="list-non-bullet">
           <li className="list-item-inline">

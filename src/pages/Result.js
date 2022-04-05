@@ -1,4 +1,4 @@
-import { useQuiz } from "../context/quiz-context";
+import { useQuiz } from "../context";
 import "./Result.css";
 import { Navbar, Results } from "../components";
 import {useState, useEffect} from "react";

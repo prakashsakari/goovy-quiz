@@ -16,7 +16,7 @@ const useAsync = (currentCategory) => {
       );
       quizDispatch({ type: "GET_QUESTIONS", payload: results });
     })();
-  }, []);
+  }, [currentCategory, quizDispatch]);
 };
 
 export const QuestionAnswer = () => {

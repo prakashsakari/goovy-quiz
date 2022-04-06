@@ -6,3 +6,6 @@ export { QuestionAnswer } from "./QuestionAnswer/QuestionAnswer";
 export { Results } from "./Results/Results";
 export { AuthLogin } from "./Auth/Login";
 export { AuthSignUp } from "./Auth/SignUp";
+export { FilterByCategory } from "./Filter/Category";
+export { MostPlayed } from "./Filter/MostPlayed";
+export { ClearFilter } from "./Filter/ClearFilter";

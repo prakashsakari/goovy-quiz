@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Rule.css";
 import rules from "../../assets/rules.svg";
-import { useAuth } from "../../context/auth-context";
+import { useAuth } from "../../context";
 
 export const Rule = () => {
 

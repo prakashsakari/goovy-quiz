@@ -1,6 +1,6 @@
 import "./QuestionAnswer.css";
 import { Link } from "react-router-dom";
-import { useQuiz } from "../../context/quiz-context";
+import { useQuiz } from "../../context";
 import axios from "axios";
 import { useEffect } from "react";
 
@@ -16,7 +16,7 @@ const useAsync = (currentCategory) => {
       );
       quizDispatch({ type: "GET_QUESTIONS", payload: results });
     })();
-  }, []);
+  }, [currentCategory, quizDispatch]);
 };
 
 export const QuestionAnswer = () => {

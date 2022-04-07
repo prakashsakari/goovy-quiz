@@ -4,7 +4,7 @@
 
 # Groovy Quiz
 
-[Groovy Quiz](https://groovyquiz.netlify.app/) is a fun and learning quiz, with multiple categories to choose from and also know interesting facts.
+[Groovy Quiz](https://groovyquiz.netlify.app/) is a fun and learning quiz app. Having multiple categories you can enjoy playing quiz from your favourite category and check your ability to break down the quiz while also learning along the way.
 
 
 
@@ -14,7 +14,7 @@
 
 ## List of features
 [Home Page](https://groovyquiz.netlify.app/)
-- Home page has multiple quiz categories along with a filter section to choose the desired quiz.
+- Home page has multiple quiz categories along with a filter section and search otpion to choose the desired quiz.
 
 Rules Page
 -   Rules page has the guidelines for the game, it has a start game and play now option to play the quiz

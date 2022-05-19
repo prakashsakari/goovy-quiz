@@ -1,11 +1,14 @@
 .product-content {
-    margin-top: 5rem;
-    margin-left: 20rem;
-    padding: 2rem 5rem;
-  }
+  margin: 5rem 0 3rem 16rem;
+  padding: 2rem 5rem;
+}
+
+.gap-32px {
+  gap: 2rem;
+}
   
-  .error-message {
-    margin-left: 10rem;
-    color: white;
-  }
+.error-message {
+  margin-left: 10rem;
+  color: white;
+}
   

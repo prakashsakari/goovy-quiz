@@ -16,7 +16,14 @@
   width: 18rem;
   padding-left: 2rem;
   font-size: 1rem;
-  border: 1px solid var(--accent-color);
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid var(--text-color-primary);
+  color: var(--text-color-primary)
+}
+
+.search-box:focus {
+  outline: none;
 }
 
 .search-icon {

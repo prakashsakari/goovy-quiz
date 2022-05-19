@@ -9,7 +9,7 @@ export const AuthSignUp = () => {
 
   const {
     state: { password, confirmPassword, isEmailValid, email, display },
-    passwordDispatch, userSignup
+    passwordDispatch
   } = useAuth();
 
   const getClassName = (display) =>
@@ -23,10 +23,6 @@ export const AuthSignUp = () => {
       ? true
       : false;
   };
-
-  const handleSignup = () => {
-    userSignup(email, password);
-  } 
 
   return (
     <div className="d-grid">
@@ -137,13 +133,14 @@ export const AuthSignUp = () => {
         </div>
 
         <div className="cta">
-        <button
-              onClick={handleSignup}
+          <Link to="/login">
+            <button
               disabled={getButtonState(password, confirmPassword)}
               className="login-btn button btn-primary cursor btn-margin sign-up-btn"
             >
               Create New Account
             </button>
+          </Link>
           <div className="create-account d-flex align-center justify-center">
             <Link className="button cursor create-acc link" to="/login">
               <span className="material-icons-outlined flex-row">

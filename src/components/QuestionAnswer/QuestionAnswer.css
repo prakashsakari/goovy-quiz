@@ -52,9 +52,11 @@
 .success {
   background-color: var(--green-badge);
   color: var(--text-color-primary);
+  font-weight: 700;
 }
 
 .error {
   background-color: var(--red-badge);
   color: var(--text-color-primary);
+  font-weight: 700;
 }

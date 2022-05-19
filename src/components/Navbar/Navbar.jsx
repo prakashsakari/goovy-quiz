@@ -10,7 +10,7 @@ export const Navbar = ({route}) => {
   } = useQuiz();
 
   const {
-    state: { userName }, user, logout
+    state: { userName }
   } = useAuth();
 
   const { filterDispatch } = useFilter();
@@ -21,20 +21,6 @@ export const Navbar = ({route}) => {
       payload: e.target.value
     });
   };
-
-  const logoutHandler = () => {
-    logout();
-    quizDispatch({
-      type: "END_GAME"
-    })
-  }
-
-  const handleNewQuizClick = () => {
-    quizDispatch({
-      type: "END_GAME"
-    })
-    localStorage.clear();
-  }
 
   return (
     <header className="heading d-flex grow1-shrink1-basisauto align-center fixed top-0 left-0">
@@ -64,42 +50,62 @@ export const Navbar = ({route}) => {
         </div>
       )}
       <nav className="navigation">
-      <ul className="list-non-bullet">
-          {user && <li className="list-item-inline">
-              Hi 😎
-          </li>}
+        <ul className="list-non-bullet">
+          <li className="list-item-inline">
+            {route === "rules" ? (
+              <Link
+              to={userName ? "/quiz" : "/login"}
+                className="link nav-options cursor"
+                onClick={() =>
+                  quizDispatch({
+                    type: "GET_DATA",
+                    payload: currentCategory
+                  })
+                }
+              >
+                Start Game 🚀🚀
+              </Link>
+            ) : route === "home" ? (
+              <Link to="/rules" className="link nav-options cursor">
+                Guidelines
+              </Link>
+            ) : (
+              ""
+            )}
+          </li>
           {route === "rules" || route === "home" || route === "signup" ? (
-            <li className="list-item-inline link nav-options cursor" onClick={logoutHandler}>
-              
-              {user ? "Logout" : "Login"}
-              
+            <li className="list-item-inline">
+              <Link to="/login" className="link nav-options cursor">
+              {userName ? `Hi, ${userName}` : "Login"}
+              </Link>
             </li>
           ) : route === "result" ? (
-            <>
-              <li className="list-item-inline">
-                <button onClick={logoutHandler}
-                  className=" button link nav-options cursor"
-                >
-                  Logout
-                </button>
-              </li>
-              <li className="list-item-inline">
-                <Link
-                  to="/"
-                  className="link nav-options cursor"
-                  onClick={handleNewQuizClick}
-                >
-                  New Quiz
-                </Link>
-              </li>
-            </>
-          ) : route === "login" && (
+            <li className="list-item-inline">
+              <Link
+                to="/"
+                className="link nav-options cursor"
+                onClick={() =>
+                  quizDispatch({
+                    type: "END_GAME"
+                  })
+                }
+              >
+                End Game - Adios
+              </Link>
+            </li>
+          ) : route === "login" ? (
             <li className="list-item-inline">
               <Link to="/signup" className="link nav-options cursor">
                 Signup
               </Link>
             </li>
-          )}
+          ) : route === "quiz" ? (
+            <li className="list-item-inline">
+              <span className="link nav-options cursor">
+                {userName && `Hi, ${userName}`}
+              </span>
+            </li>
+          ) : ""}
         </ul>
       </nav>
     </header>

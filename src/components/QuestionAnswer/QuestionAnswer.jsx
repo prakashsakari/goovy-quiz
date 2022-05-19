@@ -2,7 +2,8 @@ import "./QuestionAnswer.css";
 import { useNavigate } from "react-router-dom";
 import { useQuiz } from "../../context";
 import axios from "axios";
-import { useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
+import { Loader } from "../Loader/Loader";
 
 const useAsync = (currentCategory, questions, currentQuestion, score, finalResult) => {
   const { quizDispatch } = useQuiz();
@@ -21,7 +22,7 @@ const useAsync = (currentCategory, questions, currentQuestion, score, finalResul
       localStorage.setItem("score", score);
       localStorage.setItem("finalResult", JSON.stringify(finalResult ?? []));
     })();
-  }, []);
+  }, [currentCategory, questions, currentQuestion, score, finalResult]);
 };
 
 export const QuestionAnswer = () => {
@@ -135,62 +136,62 @@ export const QuestionAnswer = () => {
 
   return (
     <main className="d-flex justify-center qns-main">
-      <section className="question-dialog container-flex">
-        <h2 className="d-flex justify-center qsn-title">
-          {quizTitle}
-        </h2>
-        <div className="qsn_scr">
-          <span>Questions: {currentQuestion + 1}/{questions.length}</span>
-          <span className="score">Score: {score}</span>
-        </div>
-        <div className="question">
-          <span>Q{currentQuestion + 1} - {questions?.[currentQuestion]?.question}</span>
-        </div>
-        <div className="options-box">
-          {ansOptions &&
-            ansOptions.map((option, index) => {
-              return (
-                <button
-                  key={index}
-                  onClick={() => handleSelectAnswerClick(option)}
-                  className={`button option d-flex justify-center ${
-                    selectedAnswer && getClassName(option)
-                  }`}
-                  disabled={selectedAnswer}
-                >
-                  {option}
-                </button>
-              );
-            })}
-        </div>
-        <div className="nxt-btn-container">
-        {currentQuestion < questions.length - 1 ? (
-            <div className="d-flex gap">
+    <section className="question-dialog container-flex">
+      <h2 className="d-flex justify-center qsn-title">
+        {quizTitle}
+      </h2>
+      <div className="qsn_scr">
+        <span>Questions: {currentQuestion + 1}/{questions.length}</span>
+        <span className="score">Score: {score}</span>
+      </div>
+      <div className="question">
+        <span>Q{currentQuestion + 1} - {questions?.[currentQuestion]?.question}</span>
+      </div>
+      <div className="options-box">
+        {ansOptions &&
+          ansOptions.map((option, index) => {
+            return (
               <button
-                className="play-btn button btn-primary cursor"
-                onClick={handleQuitGameClick}
+                key={index}
+                onClick={() => handleSelectAnswerClick(option)}
+                className={`button option d-flex justify-center ${
+                  selectedAnswer && getClassName(option)
+                }`}
+                disabled={selectedAnswer}
               >
-                Quit 
+                {option}
               </button>
-              <button
-                disabled={isSelected}
-                className="nxt-qstn play-now-btn button btn-primary cursor"
-                onClick={handleNextQuestionClick}
-              >
-                Next Question
-              </button>
-            </div>
-          ) : (
-              <button
-                disabled={isSelected}
-                className="nxt-qstn button play-now-btn btn-primary cursor"
-                onClick={handleSubmitQuizClick}
-              >
-                Submit
-              </button>
-          )}
-        </div>
-      </section>
-    </main>
+            );
+          })}
+      </div>
+      <div className="nxt-btn-container">
+      {currentQuestion < questions.length - 1 ? (
+          <div className="d-flex gap">
+            <button
+              className="play-btn button btn-primary cursor"
+              onClick={handleQuitGameClick}
+            >
+              Quit 
+            </button>
+            <button
+              disabled={isSelected}
+              className="nxt-qstn play-now-btn button btn-primary cursor"
+              onClick={handleNextQuestionClick}
+            >
+              Next Question
+            </button>
+          </div>
+        ) : (
+            <button
+              disabled={isSelected}
+              className="nxt-qstn button play-now-btn btn-primary cursor"
+              onClick={handleSubmitQuizClick}
+            >
+              Submit
+            </button>
+        )}
+      </div>
+    </section>
+  </main>
   );
 };

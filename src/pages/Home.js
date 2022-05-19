@@ -30,7 +30,7 @@ export const Home = () => {
           <FilterByCategory />
           <MostPlayed />
         </aside>
-        <main class="product-content flex-container gap wrap">
+        <main class="product-content d-flex gap-32px wrap">
           {filterBySearch && filterBySearch.length > 0 ? (
             filterBySearch.map((category) => {
               return <QuizCard category={category} key={category.id}/>;

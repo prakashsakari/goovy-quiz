@@ -6,7 +6,7 @@ import { useAuth } from "../../context";
 export const Rule = () => {
 
   const {
-    state: { userName }
+    user
   } = useAuth();
 
   return (
@@ -33,7 +33,7 @@ export const Rule = () => {
             <li className="rule-point">You can take the quiz multiple times.</li>
           </ul>
           <button className="play-btn">
-            <Link className="link-btn" to={userName ? "/quiz" : "/login"}>
+            <Link className="link-btn" to={user ? "/quiz" : "/login"}>
               Let the game begin
               <span role="img" aria-label="fire">
                 🔥🔥

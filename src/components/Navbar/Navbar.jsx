@@ -39,16 +39,14 @@ export const Navbar = ({route}) => {
       {route === "home" && (
         <div className="search-box-container relative">
           <input
-            className="search-box padding-all-8 border-radius-4"
+            className="search-box padding-all-8"
             type="text"
             placeholder="Search"
             onChange={(e) => handleInput(e)}
           />
-          <img
-            src="https://therightfit.netlify.app/assets/outline_search_black_24dp.png"
-            alt="Search"
-            className="search-icon absolute left-0 top-0"
-          />
+          <span class="material-icons-outlined search-icon absolute">
+            search
+            </span>
         </div>
       )}
       <nav className="navigation">

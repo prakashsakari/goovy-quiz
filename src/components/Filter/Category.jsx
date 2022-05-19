@@ -21,7 +21,7 @@ export const FilterByCategory = () => {
         <label className="men d-flex gap">
           <input
             className="check-box"
-            type="checkbox"
+            type="radio"
             value="all"
             checked={category === "all"}
             onChange={(e) => handleChange(e)}
@@ -33,7 +33,7 @@ export const FilterByCategory = () => {
         <label className="men d-flex gap">
           <input
             className="check-box"
-            type="checkbox"
+            type="radio"
             value="entertainment"
             checked={category === "entertainment"}
             onChange={(e) => handleChange(e)}
@@ -46,7 +46,7 @@ export const FilterByCategory = () => {
           {" "}
           <input
             className="check-box"
-            type="checkbox"
+            type="radio"
             value="education"
             checked={category === "education"}
             onChange={(e) => handleChange(e)}
@@ -59,7 +59,7 @@ export const FilterByCategory = () => {
           {" "}
           <input
             className="check-box"
-            type="checkbox"
+            type="radio"
             value="tech"
             checked={category === "tech"}
             onChange={(e) => handleChange(e)}
@@ -71,7 +71,7 @@ export const FilterByCategory = () => {
         <label className="boys d-flex gap">
           <input
             className="check-box"
-            type="checkbox"
+            type="radio"
             value="sports"
             checked={category === "sports"}
             onChange={(e) => handleChange(e)}
@@ -83,7 +83,7 @@ export const FilterByCategory = () => {
         <label className="girls d-flex gap">
           <input
             className="check-box"
-            type="checkbox"
+            type="radio"
             value="vehicles"
             checked={category === "vehicles"}
             onChange={(e) => handleChange(e)}

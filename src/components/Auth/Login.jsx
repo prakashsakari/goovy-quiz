@@ -72,14 +72,14 @@ export const AuthLogin = () => {
             }
           />
           <button
-            className="button cursor"
+            className="button cursor absolute pwd-icon-position"
             onClick={() =>
               passwordtype === "password"
                 ? setPasswordType("text")
                 : setPasswordType("password")
             }
           >
-            <span className="material-icons-outlined absolute pwd-icon-position">
+            <span className="material-icons-outlined ">
               visibility_off
             </span>
           </button>
@@ -102,14 +102,14 @@ export const AuthLogin = () => {
         </div>
         <div className="cta">
         <button
-              className="login-btn button cursor btn-margin sign-up-btn"
+              className="login-btn button cursor btn-margin sign-up-btn padding-small"
               disabled={getButtonState(password)}
               onClick={handleLogin}
             >
               Login
             </button>
             <button
-              className="login-btn button cursor btn-margin sign-up-btn"
+              className="login-btn button btn-outline-primary btn-margin sign-up-btn padding-small"
               
               onClick={handleLoginWithTestCredentials}
             >

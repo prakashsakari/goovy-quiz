@@ -83,14 +83,14 @@ export const AuthSignUp = () => {
             }
           />
           <button
-            className="button cursor"
+            className="button cursor absolute pwd-icon-position"
             onClick={() =>
               passwordtype === "password"
                 ? setPasswordType("text")
                 : setPasswordType("password")
             }
           >
-            <span className="material-icons-outlined absolute pwd-icon-position">
+            <span className="material-icons-outlined ">
               visibility_off
             </span>
           </button>
@@ -113,14 +113,14 @@ export const AuthSignUp = () => {
             }
           />
           <button
-            className="button cursor"
+            className="button cursor absolute pwd-icon-position"
             onClick={() =>
               confirmPasswordtype === "password"
                 ? setConfirmPasswordType("text")
                 : setConfirmPasswordType("password")
             }
           >
-            <span className="material-icons-outlined absolute pwd-icon-position">
+            <span className="material-icons-outlined ">
               visibility_off
             </span>
           </button>
@@ -140,7 +140,7 @@ export const AuthSignUp = () => {
         <button
               onClick={handleSignup}
               disabled={getButtonState(password, confirmPassword)}
-              className="login-btn button btn-primary cursor btn-margin sign-up-btn"
+              className="login-btn button btn-primary cursor btn-margin sign-up-btn padding-small"
             >
               Create New Account
             </button>

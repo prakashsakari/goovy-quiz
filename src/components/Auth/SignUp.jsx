@@ -9,7 +9,7 @@ export const AuthSignUp = () => {
 
   const {
     state: { password, confirmPassword, isEmailValid, email, display },
-    passwordDispatch
+    passwordDispatch, userSignup
   } = useAuth();
 
   const getClassName = (display) =>
@@ -23,6 +23,10 @@ export const AuthSignUp = () => {
       ? true
       : false;
   };
+
+  const handleSignup = () => {
+    userSignup(email, password);
+  } 
 
   return (
     <div className="d-grid">
@@ -79,14 +83,14 @@ export const AuthSignUp = () => {
             }
           />
           <button
-            className="button cursor"
+            className="button cursor absolute pwd-icon-position"
             onClick={() =>
               passwordtype === "password"
                 ? setPasswordType("text")
                 : setPasswordType("password")
             }
           >
-            <span className="material-icons-outlined absolute pwd-icon-position">
+            <span className="material-icons-outlined ">
               visibility_off
             </span>
           </button>
@@ -109,14 +113,14 @@ export const AuthSignUp = () => {
             }
           />
           <button
-            className="button cursor"
+            className="button cursor absolute pwd-icon-position"
             onClick={() =>
               confirmPasswordtype === "password"
                 ? setConfirmPasswordType("text")
                 : setConfirmPasswordType("password")
             }
           >
-            <span className="material-icons-outlined absolute pwd-icon-position">
+            <span className="material-icons-outlined ">
               visibility_off
             </span>
           </button>
@@ -133,14 +137,13 @@ export const AuthSignUp = () => {
         </div>
 
         <div className="cta">
-          <Link to="/login">
-            <button
+        <button
+              onClick={handleSignup}
               disabled={getButtonState(password, confirmPassword)}
-              className="login-btn button btn-primary cursor btn-margin sign-up-btn"
+              className="login-btn button btn-primary cursor btn-margin sign-up-btn padding-small"
             >
               Create New Account
             </button>
-          </Link>
           <div className="create-account d-flex align-center justify-center">
             <Link className="button cursor create-acc link" to="/login">
               <span className="material-icons-outlined flex-row">

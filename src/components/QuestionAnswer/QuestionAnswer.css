@@ -40,6 +40,10 @@
   width: 100%;
 }
 
+.option:hover {
+  cursor: pointer;
+}
+
 .nxt-btn-container {
   display: flex;
   justify-content: center;
@@ -52,11 +56,11 @@
 .success {
   background-color: var(--green-badge);
   color: var(--text-color-primary);
-  font-weight: 700;
+  border: none;
 }
 
 .error {
   background-color: var(--red-badge);
   color: var(--text-color-primary);
-  font-weight: 700;
+  border: none;
 }

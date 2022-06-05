@@ -34,7 +34,7 @@ export const Rule = () => {
             </li>
             <li className="rule-point">You can take the quiz multiple times.</li>
           </ul>
-          <button className="play-btn cursor" onClick={() => navigate(userName ? "/quiz" : "/login")}>
+          <button className="play-btn cursor" onClick={() => navigate(user ? "/quiz" : "/login")}>
 
               Let the game begin
               <span role="img" aria-label="fire">

@@ -10,7 +10,7 @@ export const Footer = () => {
         </span>{" "}
         by Prakash Sakari
       </p>
-      <div className="d-flex gap align-center padding-all-16">
+      <div className="d-flex gap align-center padding-all-8">
         <a
           href="https://github.com/prakashsakari/"
           className="link"

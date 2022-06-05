@@ -1,13 +1,14 @@
 import "./Auth.css";
 import { Link } from "react-router-dom";
-import { useAuth } from "../../context/auth-context";
-import { useState } from "react";
+import { useAuth } from "../../context";
+import { useEffect, useState } from "react";
+
 export const AuthLogin = () => {
   const [passwordtype, setPasswordType] = useState("password");
 
   const {
     state: { password, isEmailValid, email, display },
-    passwordDispatch
+    passwordDispatch, userLogin, userSignup
   } = useAuth();
 
   const getClassName = (display) =>
@@ -20,6 +21,18 @@ export const AuthLogin = () => {
       ? true
       : false;
   };
+
+  const handleLogin = () => {
+    userLogin(email, password);
+  }
+
+  useEffect(() => {
+    userSignup("vimal@gmail.com", "password");
+  }, [])
+
+  const handleLoginWithTestCredentials = () => {
+    userLogin("vimal@gmail.com", "password");
+  }
 
   return (
     <div className="d-grid">
@@ -59,14 +72,14 @@ export const AuthLogin = () => {
             }
           />
           <button
-            className="button cursor"
+            className="button cursor absolute pwd-icon-position"
             onClick={() =>
               passwordtype === "password"
                 ? setPasswordType("text")
                 : setPasswordType("password")
             }
           >
-            <span className="material-icons-outlined absolute pwd-icon-position">
+            <span className="material-icons-outlined ">
               visibility_off
             </span>
           </button>
@@ -75,33 +88,21 @@ export const AuthLogin = () => {
           <span>Password must contain atleast 6 characters</span>
           <span>Password cannot contain any special character</span>
         </div>
-
-        <div className="remember d-flex align-center">
-          <label className="padding-all-8 label-remember d-flex align-center">
-            <input type="checkbox" className="check-box" />
-            Remember me
-          </label>
-          <button className="button forgot-pass cursor mg-left">
-            <Link className="create-acc" to="/login" target="_blank">
-              Forgot your Password?
-            </Link>
-          </button>
-        </div>
         <div className="cta">
-          <Link to="/" className="link">
-            <button
-              className="login-btn button cursor btn-margin sign-up-btn"
+        <button
+              className="login-btn button cursor btn-margin sign-up-btn padding-small"
               disabled={getButtonState(password)}
-              onClick={() =>
-                passwordDispatch({
-                  type: "GET_USER_NAME",
-                  payload: email
-                })
-              }
+              onClick={handleLogin}
             >
               Login
             </button>
-          </Link>
+            <button
+              className="login-btn button btn-outline-primary btn-margin sign-up-btn padding-small"
+              
+              onClick={handleLoginWithTestCredentials}
+            >
+              Login with test credentials
+            </button>
           <div className="create-account d-flex align-center justify-center">
             <Link className="button cursor create-acc link" to="/signup">
               <span className="material-icons-outlined flex-row">

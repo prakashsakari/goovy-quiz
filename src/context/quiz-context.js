@@ -1,5 +1,5 @@
 import { createContext, useContext, useReducer } from "react";
-import { quizReducer } from "../reducer/quizReducer";
+import { quizReducer } from "../reducer";
 
 const QuizContext = createContext();
 
@@ -11,7 +11,9 @@ const QuizProvider = ({ children }) => {
     selectedAnswer: "",
     questions: [],
     ansOptions: [],
-    finalResult: []
+    finalResult: [],
+    isSelected: true,
+    quizTitle: ""
   });
 
   return (

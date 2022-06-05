@@ -1,33 +1,44 @@
-import { mathQuestions, geogQuestions, historyQuestion } from "../staticData";
-import { shuffleOptions } from "../utils/shuffleOptions";
+import { shuffleOptions } from "../utils";
 
 export const quizReducer = (quizState, { type, payload }) => {
   switch (type) {
     case "SELECTED_CATEGORY":
       return {
         ...quizState,
-        currentCategory: payload
+        currentCategory: payload.value,
+        quizTitle: payload.title
       };
 
-    case "GET_DATA":
+    case "SET_QUESTIONS":
       return {
         ...quizState,
-        questions:
-          payload === "maths"
-            ? mathQuestions
-            : payload === "history"
-            ? historyQuestion
-            : payload === "geog"
-            ? geogQuestions
-            : [],
-        ansOptions: shuffleOptions(
-          payload === "maths"
-            ? mathQuestions
-            : payload === "history"
-            ? historyQuestion
-            : payload === "geog"
-            ? geogQuestions
-            : [], 0)
+        questions: payload.questions,
+        ansOptions: shuffleOptions(payload.questions, payload.currentQuestion)
+      };
+    
+    case "SET_CURRENT_QUESTION":
+      return {
+        ...quizState,
+        currentQuestion: payload
+      }
+    
+    case "SET_SCORE":
+      return {
+        ...quizState,
+        score: payload
+      }
+    
+    case "SET_RESULT":
+      return {
+        ...quizState,
+        finalResult: payload
+      }
+
+    case "GET_QUESTIONS":
+      return {
+        ...quizState,
+        questions: payload,
+        ansOptions: shuffleOptions(payload, 0)
       };
 
     case "ANSWER_CHECK":
@@ -35,18 +46,20 @@ export const quizReducer = (quizState, { type, payload }) => {
         ...quizState,
         selectedAnswer: payload,
         score:
-          payload === quizState.questions?.[quizState.currentQuestion]?.correctAnswer
+          payload === quizState.questions?.[quizState.currentQuestion]?.correct_answer
             ? quizState.score + 10
             : quizState.score,
+        isSelected: !quizState.isSelected
       };
 
     case "NEXT_QUESTION":
       return {
         ...quizState,
-        currentQuestion: quizState.currentQuestion < 4 && quizState.currentQuestion + 1,
+        currentQuestion: quizState.currentQuestion < quizState.questions.length - 1 && quizState.currentQuestion + 1,
         finalResult: [...quizState.finalResult, { qns: payload.qns, ans: payload.ans }],
         selectedAnswer: "",
         ansOptions: shuffleOptions(quizState.questions, quizState.currentQuestion + 1),
+        isSelected: !quizState.isSelected
       };
     
     case "RESULT_PAGE":
@@ -67,6 +80,7 @@ export const quizReducer = (quizState, { type, payload }) => {
         finalResult: [],
         isSelected: true
       };
+
     default:
       return quizState;
   }

@@ -1,5 +1,11 @@
 .footer {
-    padding-top: 5rem;
-    color: var(--text-color-primary);
-  }
-  
+  background-color: var(--primary-color);
+  color: var(--text-color-primary);
+  padding: 0;
+  width: 100%;
+  padding-top: .5rem;
+  padding-bottom: 0;
+  position: fixed;
+  bottom: 0;
+  z-index: 2
+}

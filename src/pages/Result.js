@@ -1,4 +1,4 @@
-import { useQuiz } from "../context/quiz-context";
+import { useQuiz } from "../context";
 import "./Result.css";
 import { Navbar, Results } from "../components";
 import {useState, useEffect} from "react";
@@ -11,8 +11,16 @@ export const Result = () => {
   }, [route]);
 
   const {
-    quizState: { score, questions, finalResult }
+    quizState: { score, questions, finalResult }, quizDispatch
   } = useQuiz();
+
+  useEffect(() => {
+    const finalResult = JSON.parse(localStorage.getItem("finalResult"));
+    quizDispatch({
+      type: "SET_RESULT",
+      payload: finalResult
+    })
+  }, [])
 
 
   return (

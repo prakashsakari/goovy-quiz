@@ -1,10 +1,19 @@
 import "./QuizCard.css";
-import {Link} from "react-router-dom";
-import { useQuiz } from "../../context/quiz-context";
+import { useNavigate } from "react-router-dom";
+import { useQuiz, useAuth } from "../../context";
 
 export const QuizCard = ({ category }) => {
   const {quizDispatch} = useQuiz();
   const { title, description, img, mostPlayed, value } = category;
+
+  const {user} = useAuth();
+  const navigate = useNavigate();
+
+  const handlePlayNowClick = () => {
+    if (user) navigate("/rules")
+    else navigate("/login")
+  }
+
   return (
     <div className="container relative">
       <div className="d-flex align-center justify-center">
@@ -32,7 +41,7 @@ export const QuizCard = ({ category }) => {
             }
           })
         }>
-        <Link className="play-now-link-btn" to="/rules">Play Now</Link>
+        <button className="button play-now-link-btn cursor" onClick={handlePlayNowClick}>Play Now</button>
       </button>
     </div>
   );

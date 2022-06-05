@@ -5,6 +5,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 6rem;
+  margin-top: 8rem;
 }
 
 .section-img-box {

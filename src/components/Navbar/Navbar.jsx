@@ -2,6 +2,7 @@ import "./Navbar.css";
 import logo from "../../assets/logo.png"
 import { Link } from "react-router-dom";
 import { useQuiz, useAuth, useFilter } from "../../context";
+import { debounce } from "lodash";
 
 export const Navbar = ({route}) => {
   const {
@@ -15,12 +16,12 @@ export const Navbar = ({route}) => {
 
   const { filterDispatch } = useFilter();
 
-  const handleInput = (e) => {
+  const handleInput = debounce((e) => {
     filterDispatch({
       type: "SEARCH",
       payload: e.target.value
     });
-  };
+  }, 500);
 
   const logoutHandler = () => {
     logout();

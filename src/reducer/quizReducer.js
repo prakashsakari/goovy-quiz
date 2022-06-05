@@ -1,5 +1,4 @@
-import { mathQuestions, geogQuestions, historyQuestion } from "../staticData";
-import { shuffleOptions } from "../utils/shuffleOptions";
+import { shuffleOptions } from "../utils";
 
 export const quizReducer = (quizState, { type, payload }) => {
   switch (type) {
@@ -9,6 +8,31 @@ export const quizReducer = (quizState, { type, payload }) => {
         currentCategory: payload.value,
         quizTitle: payload.title
       };
+
+    case "SET_QUESTIONS":
+      return {
+        ...quizState,
+        questions: payload.questions,
+        ansOptions: shuffleOptions(payload.questions, payload.currentQuestion)
+      };
+    
+    case "SET_CURRENT_QUESTION":
+      return {
+        ...quizState,
+        currentQuestion: payload
+      }
+    
+    case "SET_SCORE":
+      return {
+        ...quizState,
+        score: payload
+      }
+    
+    case "SET_RESULT":
+      return {
+        ...quizState,
+        finalResult: payload
+      }
 
     case "GET_QUESTIONS":
       return {

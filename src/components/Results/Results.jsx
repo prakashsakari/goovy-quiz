@@ -1,4 +1,4 @@
-import { useQuiz } from "../../context/quiz-context";
+import { useQuiz } from "../../context";
 
 export const Results = ({ index, qns, ans }) => {
   const {
@@ -11,7 +11,7 @@ export const Results = ({ index, qns, ans }) => {
       <h4 className={`option d-flex justify-center ${ questions[index]?.correct_answer === ans ? "success" : "error"}`}>
         Your Answer - {ans}
       </h4>
-      {questions[index].correct_answer !== ans && (
+      {questions[index]?.correct_answer !== ans && (
         <h4 className="success option d-flex justify-center">
           Correct Answer - {questions[index]?.correct_answer}
         </h4>

@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Rule.css";
 import rules from "../../assets/rules.svg";
 import { useAuth } from "../../context";
 
 export const Rule = () => {
+
+  const navigate = useNavigate();
 
   const {
     user
@@ -32,13 +34,12 @@ export const Rule = () => {
             </li>
             <li className="rule-point">You can take the quiz multiple times.</li>
           </ul>
-          <button className="play-btn">
-            <Link className="link-btn" to={user ? "/quiz" : "/login"}>
+          <button className="play-btn cursor" onClick={() => navigate(userName ? "/quiz" : "/login")}>
+
               Let the game begin
               <span role="img" aria-label="fire">
                 🔥🔥
               </span>
-            </Link>
           </button>
         </div>
       </section>

@@ -3,5 +3,9 @@
   color: var(--text-color-primary);
   padding: 0;
   width: 100%;
-  padding: 1rem;
+  padding-top: .5rem;
+  padding-bottom: 0;
+  position: fixed;
+  bottom: 0;
+  z-index: 2
 }

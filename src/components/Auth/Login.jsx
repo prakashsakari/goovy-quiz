@@ -88,18 +88,6 @@ export const AuthLogin = () => {
           <span>Password must contain atleast 6 characters</span>
           <span>Password cannot contain any special character</span>
         </div>
-
-        <div className="remember d-flex align-center">
-          <label className="padding-all-8 label-remember d-flex align-center">
-            <input type="checkbox" className="check-box" />
-            Remember me
-          </label>
-          <button className="button forgot-pass cursor mg-left">
-            <Link className="create-acc" to="/login" target="_blank">
-              Forgot your Password?
-            </Link>
-          </button>
-        </div>
         <div className="cta">
         <button
               className="login-btn button cursor btn-margin sign-up-btn padding-small"

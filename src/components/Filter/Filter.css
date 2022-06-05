@@ -32,6 +32,10 @@
     margin: 8px 0;
 }
 
+.gap-16px {
+    gap: 12px;
+}
+
 
 .gap-large {
     gap: 3.5rem;

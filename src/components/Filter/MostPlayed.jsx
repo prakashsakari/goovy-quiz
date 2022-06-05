@@ -12,7 +12,7 @@ export const MostPlayed = () => {
     <div className="category-title">
       <h3 className="sub-title margin16-top-down">Additional Filters</h3>
       <div className="select-men">
-        <label className="men d-flex gap align-center">
+        <label className="men d-flex gap-16px align-center">
           <input
             className="check-box"
             type="checkbox"

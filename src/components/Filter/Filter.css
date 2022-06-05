@@ -3,7 +3,7 @@
     padding-bottom: 6rem;
     position: fixed;
     overflow: auto;
-    width: 20rem;
+    width: 17rem;
 }
 
 .category-title {
@@ -30,6 +30,10 @@
 
 .margin8-top-down {
     margin: 8px 0;
+}
+
+.gap-16px {
+    gap: 12px;
 }
 
 

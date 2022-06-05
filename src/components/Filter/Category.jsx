@@ -18,7 +18,7 @@ export const FilterByCategory = () => {
     <div className="category-title">
       <h3 className="sub-title margin16-top-down">Categroy</h3>
       <div className="select-men">
-        <label className="men d-flex gap">
+        <label className="men d-flex gap-16px align-center">
           <input
             className="check-box"
             type="radio"
@@ -30,7 +30,7 @@ export const FilterByCategory = () => {
         </label>
       </div>
       <div className="select-men margin8-top-down">
-        <label className="men d-flex gap">
+        <label className="men d-flex gap-16px">
           <input
             className="check-box"
             type="radio"
@@ -42,7 +42,7 @@ export const FilterByCategory = () => {
         </label>
       </div>
       <div className="select-women margin8-top-down">
-        <label className="women d-flex gap">
+        <label className="women d-flex gap-16px">
           {" "}
           <input
             className="check-box"
@@ -55,7 +55,7 @@ export const FilterByCategory = () => {
         </label>
       </div>
       <div className="select-women margin8-top-down">
-        <label className="women d-flex gap">
+        <label className="women d-flex gap-16px">
           {" "}
           <input
             className="check-box"
@@ -68,7 +68,7 @@ export const FilterByCategory = () => {
         </label>
       </div>
       <div className="select-boys margin8-top-down">
-        <label className="boys d-flex gap">
+        <label className="boys d-flex gap-16px">
           <input
             className="check-box"
             type="radio"
@@ -80,7 +80,7 @@ export const FilterByCategory = () => {
         </label>
       </div>
       <div className="select-girls margin8-top-down">
-        <label className="girls d-flex gap">
+        <label className="girls d-flex gap-16px">
           <input
             className="check-box"
             type="radio"

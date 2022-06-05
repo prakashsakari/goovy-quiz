@@ -43,6 +43,7 @@
 .play-btn {
   border: none;
   background-color: var(--secondary-color);
+  color: var(--text-color-primary);
   padding: 8px 1rem;
   font-size: 1.5rem;
   border-radius: 4px;
